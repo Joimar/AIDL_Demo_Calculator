@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
             // Teste: chama o método add do serviço
             try {
                 int result = mService.add(2, 3);
-                Log.d("AIDL_DEMO", "Resultado da soma: " + result);
+
             } catch (RemoteException e) {
                 e.printStackTrace();
             }
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
 
                         // Chama o método add do serviço
                         int result = mService.add(number1, number2);
-
+                        Log.d("AIDL_DEMO", "Resultado da soma: " + result);
                         // Exibe o resultado no TextView
                         textViewResult.setText("Resultado: " + result);
                     } catch (RemoteException e) {
@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
 
                 // Chama o método add do serviço
                 int result = mService.add(number1, number2);
-
+                Log.d("AIDL_DEMO", "Resultado da soma: " + result);
                 // Exibe o resultado no TextView
                 textViewResult.setText("Resultado: " + result);
 

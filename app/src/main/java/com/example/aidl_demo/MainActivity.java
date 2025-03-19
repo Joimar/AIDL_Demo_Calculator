@@ -105,6 +105,27 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        // Exemplo de uso do serviço assim que a Activity fica em primeiro plano
+        if(mBound && mService != null){
+            try {
+                // Pega os valores dos EditText
+                int number1 = Integer.parseInt(editTextNumber1.getText().toString());
+                int number2 = Integer.parseInt(editTextNumber2.getText().toString());
+
+                // Chama o método add do serviço
+                int result = mService.add(number1, number2);
+
+                // Exibe o resultado no TextView
+                textViewResult.setText("Resultado: " + result);
+
+            }catch(RemoteException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    @Override
     protected void onDestroy() {
         super.onDestroy();
         // Desvincula o serviço para evitar vazamentos de memória
